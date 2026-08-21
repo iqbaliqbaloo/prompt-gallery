@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Visible Unique Category Imagery
+
+- [x] Audit visible duplicates caused by the remote image endpoint.
+- [x] Create physically distinct local visual assets for all 150 categories.
+- [x] Replace remote image URLs in cards and detail views with local assets.
+- [x] Verify visible image fingerprints contain no duplicates.
+- [x] Run build checks and capture screenshots; checkpoint remains next.
+
 ## Unique Prompt-Matched Imagery
 
 - [x] Audit current repeated image sources and seeds.
