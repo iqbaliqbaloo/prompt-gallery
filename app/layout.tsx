@@ -5,8 +5,8 @@ const siteUrl = "https://promptgallery.sbs";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "AI Video Prompt Library | Prompt Gallery", template: "%s | Prompt Gallery" },
-  description: "Discover 150 ready-to-use AI video prompts for animated stories, cinematic films, lessons, ads, vlogs, documentaries, and multi-scene video creation.",
+  title: { default: "AI Video Prompt Library: 150+ Ready-Made Prompts | Prompt Gallery", template: "%s | Prompt Gallery" },
+  description: "Explore 150+ ready-made AI video prompts for stories, cinematic scenes, animation, YouTube, ads, education, vlogs, documentaries, and multi-scene videos.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
 };
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           "@type": "WebSite",
           name: "Prompt Gallery",
           url: siteUrl,
-          description: "A visual library of ready-to-use AI video prompts for stories, lessons, ads, vlogs, documentaries, and animation.",
+          description: "A visual library of ready-to-use AI video prompts for stories, cinematic scenes, animation, YouTube, ads, education, vlogs, documentaries, and multi-scene videos.",
           potentialAction: { "@type": "SearchAction", target: `${siteUrl}/?q={search_term_string}`, "query-input": "required name=search_term_string" },
         }) }} />
         {children}

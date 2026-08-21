@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Focused SEO Topic Expansion
+
+- [x] Audit current homepage metadata and identify focused topic landing pages.
+- [x] Update homepage title, description, and site-level structured data with natural AI video prompt keywords.
+- [x] Add indexable topic landing pages for major prompt themes with metadata, internal links, and useful content.
+- [x] Include topic routes in the sitemap and validate Next.js static export.
+- [ ] Push the SEO topic expansion to GitHub.
+
 ## Remove Manus Branding
 
 - [x] Scan source, prompts, documentation, metadata, and configuration for Manus references.
