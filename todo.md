@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## SEO Optimization Pass
+
+- [x] Audit current titles, descriptions, headings, routes, images, and indexability.
+- [x] Define keyword, page, schema, and internal-link strategy.
+- [x] Implement semantic metadata, structured data, accessible image text, and clean crawl files.
+- [x] Add performance safeguards and frontend-only SEO documentation.
+- [x] Validate build, routes, metadata, sitemap, robots, and responsive behavior.
+- [x] Capture final screenshots; checkpoint remains next.
+
 ## Continue Dedicated Category Artwork
 
 - [x] Audit categories 006–150 for empty or broken image mappings.
