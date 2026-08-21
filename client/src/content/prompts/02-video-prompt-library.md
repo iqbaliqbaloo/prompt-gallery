@@ -1,6 +1,6 @@
 # Comprehensive AI Video Ready-Made Prompt Library
 
-**Original collection by Manus AI**
+**Original collection by Prompt Gallery**
 
 This library contains original, copy-ready prompts for text-to-video, image-to-video, and AI video editors. Each prompt is designed as a short production clip that can be generated separately and assembled into a longer video. This approach is more reliable than asking most video models to create a complete ten-minute film in one generation. Current prompting guidance commonly recommends describing the camera movement first, followed by the scene, one primary action, and supporting visual or audio details. [1]
 

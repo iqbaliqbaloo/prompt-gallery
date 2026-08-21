@@ -1,6 +1,6 @@
 # Original AI Ready-Made Prompt Pack
 
-**Author:** Manus AI  
+**Author:** Prompt Gallery  
 **Purpose:** Copy-ready prompts for image generation, photo editing, design, social media, products, characters, environments, and visual effects.
 
 > These prompts are original prompt templates, not verbatim copies of prompts from external libraries. Replace bracketed fields such as `[NAME]` or `[COLOR]` when needed. For image editing, upload the source image first, then paste the prompt.

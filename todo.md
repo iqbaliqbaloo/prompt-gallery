@@ -1,5 +1,12 @@
 # Exact Prompt Library Implementation Checklist
 
+## Remove Manus Branding
+
+- [x] Scan source, prompts, documentation, metadata, and configuration for Manus references.
+- [x] Remove or replace every removable Manus word while preserving required asset paths and hosting configuration.
+- [x] Validate that no removable Manus text remains and run typecheck/build checks.
+- [ ] Push the cleaned project to GitHub.
+
 ## Domain SEO Completion Pass
 
 - [x] Audit https://promptgallery.sbs availability, redirects, HTTPS, canonical domain, robots, and sitemap.
