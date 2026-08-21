@@ -1,5 +1,21 @@
 # Exact Prompt Library Implementation Checklist
 
+## Continue Dedicated Category Artwork
+
+- [x] Audit categories 006–150 for empty or broken image mappings.
+- [x] Prepare one-to-one generated asset slots and prompts for categories 006–150.
+- [x] Preserve the five completed generated images and card mappings.
+- [ ] Verify no empty image mappings and confirm card click behavior.
+- [ ] Run build checks and save the next checkpoint after artwork generation continues.
+
+## One Generated Image Per Category Card
+
+- [ ] Inventory all 150 category titles and asset slots.
+- [ ] Generate one dedicated prompt-matched image per category.
+- [ ] Wire each generated asset to the exact category card and detail view.
+- [ ] Verify 150 visible images, 150 unique assignments, and working click actions.
+- [ ] Run build checks, capture screenshots, and save a new checkpoint.
+
 ## Generated AI-Animation Card Artwork
 
 - [x] Define the colorful AI-animation visual direction from the reference image.

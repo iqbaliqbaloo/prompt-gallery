@@ -21,7 +21,14 @@ const titles = [  "3D Cartoon Stories", "Baby Bedtime Stories", "Nursery Rhymes"
 ];
 
 const accents = ["coral", "aqua", "yellow", "lilac", "peach", "mint", "rose"];
-const chooseRealImage = (_title: string, index: number) => categoryAssetUrls[index];
+const generatedCategoryImages: Record<number, string> = {
+  0: "/manus-storage/category-001-3d-cartoon-stories_0894bde7.jpg",
+  1: "/manus-storage/category-002-baby-bedtime-stories_804da63a.jpg",
+  2: "/manus-storage/category-003-nursery-rhymes_17390dbe.jpg",
+  3: "/manus-storage/category-004-kids-adventure-stories_3223312c.jpg",
+  4: "/manus-storage/category-005-fairy-tales_b8011eef.jpg",
+};
+const chooseRealImage = (_title: string, index: number) => generatedCategoryImages[index] ?? categoryAssetUrls[index];
 const chooseKind = (title: string) => { const t = title.toLowerCase(); if (/(lesson|training|tutorial|education|explainer|practice|preparation)/.test(t)) return "Learn"; if (/(commercial|advertisement|promo|campaign|launch|demo|unboxing|pitch)/.test(t)) return "Create"; if (/(vlog|diary|routine|day-in-the-life)/.test(t)) return "Vlog"; if (/(documentary|history|biography|archaeology)/.test(t)) return "Document"; if (/(story|film|horror|drama|comedy|adventure|quest)/.test(t)) return "Story"; return "Visual"; };
 const makePrompt = (title: string, kind: string, duration: string, index: number) => `Create a premium ${title.toLowerCase()} video for ${duration}, built as connected 10-second scenes. This is a ${kind.toLowerCase()} production. Define a locked protagonist or presenter with a stable face, age, height, body proportions, hairstyle, skin or species details, wardrobe, accessories, voice, signature prop, and movement style before Scene 1. Define the location geometry, fixed objects, time of day, weather, lighting direction, color grade, camera language, aspect ratio, music, ambience, foley, dialogue, and final emotional beat. Scene 1 establishes the world and the main subject. Every later scene must use the exact same character reference, location reference, wardrobe, props, voice, and approved previous final frame. Give each 10-second scene one clear action, one camera movement, exact dialogue or narration when needed, synchronized sound, a precise ending pose, and a handoff into the next scene. The ending frame of Scene N must match the starting frame of Scene N+1. Keep screen direction, gaze, hand position, object state, lighting, and emotional continuity stable. Use clean premium cinematography, strong visual storytelling, natural motion, accurate hands and eyes, coherent contact shadows, and no character redesign, prop drift, unexplained extras, or discontinuity. Category-specific creative direction: ${title}. Create a complete production-ready result, not a short concept.`;
 
