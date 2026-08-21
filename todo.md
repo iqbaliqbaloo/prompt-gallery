@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Unique Prompt-Matched Imagery
+
+- [x] Audit current repeated image sources and seeds.
+- [x] Assign 150 unique image sources with category-specific query terms.
+- [x] Update main category and individual category cards to use only unique images.
+- [x] Add image fallback seeds that remain unique by category ID.
+- [x] Verify zero duplicate image URLs or seeds and review responsive rendering.
+- [x] Run build checks and capture screenshots; checkpoint remains next.
+
 ## Fully Populated Category Cards
 
 - [x] Audit all 150 category titles against the source category library.
