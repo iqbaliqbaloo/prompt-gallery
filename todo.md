@@ -1,5 +1,11 @@
 # Exact Prompt Library Implementation Checklist
 
+## Search and Categories Navigation Fix
+
+- [x] Audit search input filtering, category button handlers, anchors, and route links.
+- [x] Fix confirmed search and category navigation failures without changing prompt content.
+- [x] Validate search results, categories scrolling/navigation, category routes, and production build.
+
 ## SEO-Only Audit and Improvement
 
 - [x] Audit metadata, canonical URLs, robots, sitemap, structured data, and internal links.
