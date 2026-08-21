@@ -1,5 +1,12 @@
 # Exact Prompt Library Implementation Checklist
 
+## SEO-Only Audit and Improvement
+
+- [x] Audit metadata, canonical URLs, robots, sitemap, structured data, and internal links.
+- [x] Compare the search-result presentation against the provided PromptGallery example.
+- [x] Apply only confirmed SEO improvements without changing prompt or app features.
+- [x] Validate SEO routes, production build, and live indexability signals.
+
 ## Fresh AI Artwork for Every Card
 
 - [ ] Freeze a 165-title image-to-asset map with unique filenames.

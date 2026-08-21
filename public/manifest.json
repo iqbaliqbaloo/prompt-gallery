@@ -8,9 +8,9 @@
   "theme_color": "#ff6b6b",
   "icons": [
     {
-      "src": "/manus-storage/ai-animation-product-card_022f5f6a.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]

@@ -60,7 +60,11 @@ const prompts = [
 
 function useLocalList(key: string) {
   const [items, setItems] = useState<number[]>(() => {
-    try { return JSON.parse(window.localStorage.getItem(key) || "[]"); } catch { return []; }
+    if (typeof window === "undefined") return [];
+    try {
+      const stored = JSON.parse(window.localStorage.getItem(key) || "[]");
+      return Array.isArray(stored) ? stored.filter((value): value is number => Number.isInteger(value)) : [];
+    } catch { return []; }
   });
   const toggle = (id: number) => setItems((current) => {
     const next = current.includes(id) ? current.filter((x) => x !== id) : [...current, id];

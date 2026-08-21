@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://promptgalaxy-44vopfaq.manus.space/sitemap.xml
+Sitemap: https://promptgallery.sbs/sitemap.xml
