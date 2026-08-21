@@ -1,0 +1,17 @@
+{
+  "name": "Prompt Gallery — AI Video Prompt Library",
+  "short_name": "Prompt Gallery",
+  "description": "A visual library of ready-to-use AI video prompts for stories, lessons, ads, vlogs, documentaries, and animation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf7ef",
+  "theme_color": "#ff6b6b",
+  "icons": [
+    {
+      "src": "/manus-storage/ai-animation-product-card_022f5f6a.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

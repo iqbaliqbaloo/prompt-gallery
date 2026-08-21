@@ -8,11 +8,11 @@ const titles = [  "3D Cartoon Stories", "Baby Bedtime Stories", "Nursery Rhymes"
 
 const accents = ["coral", "aqua", "yellow", "lilac", "peach", "mint", "rose"];
 const generatedCategoryImages: Record<number, string> = {
-  0: "/manus-storage/category-001-3d-cartoon-stories_0894bde7.jpg",
-  1: "/manus-storage/category-002-baby-bedtime-stories_804da63a.jpg",
-  2: "/manus-storage/category-003-nursery-rhymes_17390dbe.jpg",
-  3: "/manus-storage/category-004-kids-adventure-stories_3223312c.jpg",
-  4: "/manus-storage/category-005-fairy-tales_b8011eef.jpg",
+  0: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/category-001-3d-cartoon-stories_0894bde7.jpg",
+  1: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/category-002-baby-bedtime-stories_804da63a.jpg",
+  2: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/category-003-nursery-rhymes_17390dbe.jpg",
+  3: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/category-004-kids-adventure-stories_3223312c.jpg",
+  4: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/category-005-fairy-tales_b8011eef.jpg",
 };
 const chooseRealImage = (_title: string, index: number) => generatedCategoryImages[index] ?? categoryAssetUrls[index];
 const chooseKind = (title: string) => { const t = title.toLowerCase(); if (/(lesson|training|tutorial|education|explainer|practice|preparation)/.test(t)) return "Learn"; if (/(commercial|advertisement|promo|campaign|launch|demo|unboxing|pitch)/.test(t)) return "Create"; if (/(vlog|diary|routine|day-in-the-life)/.test(t)) return "Vlog"; if (/(documentary|history|biography|archaeology)/.test(t)) return "Document"; if (/(story|film|horror|drama|comedy|adventure|quest)/.test(t)) return "Story"; return "Visual"; };

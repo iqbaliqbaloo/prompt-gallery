@@ -1,15 +1,16 @@
+"use client";
+
 /* Candy Editorial Studio: keep error states warm, editorial, and useful instead of generic template chrome. */
 import { ArrowLeft, Compass, Home } from "lucide-react";
-import { useLocation } from "wouter";
-
+import { useRouter } from "next/navigation";
 export default function NotFound() {
-  const [, setLocation] = useLocation();
+  const router = useRouter();
 
   return (
     <main className="min-h-screen bg-[#fbf7ef] px-5 py-10 text-[#28252a] sm:px-8 lg:px-10">
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1180px] flex-col justify-between">
         <header className="flex items-center justify-between border-b border-[#2d2932]/10 pb-5">
-          <button onClick={() => setLocation("/")} className="flex items-center gap-3 text-left" aria-label="Return to Prompt Gallery home">
+          <button onClick={() => router.push("/")} className="flex items-center gap-3 text-left" aria-label="Return to Prompt Gallery home">
             <span className="grid h-10 w-10 place-items-center rounded-[14px] bg-[#ff6b6b] text-white shadow-[4px_4px_0_#28252a]"><Compass size={20} /></span>
             <span><span className="block font-display text-xl font-bold leading-none">Prompt Gallery</span><span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.2em] text-[#746c73]">Creative video library</span></span>
           </button>
@@ -25,7 +26,7 @@ export default function NotFound() {
             <h2 className="font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl">This scene didn’t make the final cut.</h2>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-[#746c73]">The page may have moved, or the URL may be from a prompt that has not been added to the shelf yet.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button onClick={() => setLocation("/")} className="inline-flex items-center gap-2 rounded-full bg-[#ff6b6b] px-5 py-3.5 text-sm font-bold text-white shadow-[5px_5px_0_#28252a] transition hover:-translate-y-1"><Home size={16} /> Return home</button>
+              <button onClick={() => router.push("/")} className="inline-flex items-center gap-2 rounded-full bg-[#ff6b6b] px-5 py-3.5 text-sm font-bold text-white shadow-[5px_5px_0_#28252a] transition hover:-translate-y-1"><Home size={16} /> Return home</button>
               <button onClick={() => window.history.back()} className="inline-flex items-center gap-2 rounded-full border border-[#2d2932]/15 bg-white px-5 py-3.5 text-sm font-bold transition hover:-translate-y-1 hover:border-[#ff6b6b]"><ArrowLeft size={16} /> Go back</button>
             </div>
           </div>

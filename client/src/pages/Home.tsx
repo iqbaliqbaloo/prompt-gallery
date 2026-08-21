@@ -1,3 +1,5 @@
+"use client";
+
 /* Candy Editorial Studio: editorial maximalism, warm cream canvas, coral actions, tactile prompt cards. */
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -5,28 +7,29 @@ import { Copy, Heart, Search, Sparkles, ArrowRight, Clock3, Play, MessageCircle,
 import { promptFiles } from "@/content/promptManifest";
 import { categoryCards } from "@/content/categoryCards";
 import { categoryAssetUrls } from "@/content/categoryAssetUrls";
-import file01 from "@/content/prompts/01-image-prompt-pack.md?raw";
-import file02 from "@/content/prompts/02-video-prompt-library.md?raw";
-import file03 from "@/content/prompts/03-150-category-library.md?raw";
-import file04 from "@/content/prompts/04-ultra-premium-30-multiscene.md?raw";
-import file05 from "@/content/prompts/05-interactive-30-master-prompts.md?raw";
-import file06 from "@/content/prompts/06-interactive-generator.md?raw";
-import file07 from "@/content/prompts/07-corrected-generator.md?raw";
 
 const images = {
-  hero: "/manus-storage/prompt-gallery-hero_67f22a53.jpg",
-  cartoon: "/manus-storage/ai-animation-story-card_e443afd0.jpg",
-  cinematic: "/manus-storage/ai-animation-documentary-card_3ab62b13.jpg",
-  learning: "/manus-storage/ai-animation-learning-card_d306944a.jpg",
-  mark: "/manus-storage/ai-animation-product-card_022f5f6a.jpg",
-  city: "/manus-storage/ai-animation-vlog-card_fe2d64c3.jpg",
+  hero: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/prompt-gallery-hero_67f22a53.jpg",
+  cartoon: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/ai-animation-story-card_e443afd0.jpg",
+  cinematic: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/ai-animation-documentary-card_3ab62b13.jpg",
+  learning: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/ai-animation-learning-card_d306944a.jpg",
+  mark: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/ai-animation-product-card_022f5f6a.jpg",
+  city: "https://promptgalaxy-44vopfaq.manus.space/manus-storage/ai-animation-vlog-card_fe2d64c3.jpg",
   travel: categoryAssetUrls[0],
   food: categoryAssetUrls[1],
   fashion: categoryAssetUrls[2],
   nature: categoryAssetUrls[3],
 };
 
-const fullPromptFiles: Record<string, string> = { "01": file01, "02": file02, "03": file03, "04": file04, "05": file05, "06": file06, "07": file07 };
+const promptFilePaths: Record<string, string> = {
+  "01": "/prompts/01-image-prompt-pack.md",
+  "02": "/prompts/02-video-prompt-library.md",
+  "03": "/prompts/03-150-category-library.md",
+  "04": "/prompts/04-ultra-premium-30-multiscene.md",
+  "05": "/prompts/05-interactive-30-master-prompts.md",
+  "06": "/prompts/06-interactive-generator.md",
+  "07": "/prompts/07-corrected-generator.md",
+};
 const fallbackImage = (title: string) => `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 640"><rect width="800" height="640" fill="#f4e9e5"/><circle cx="665" cy="110" r="170" fill="#ffd95a" opacity=".72"/><circle cx="120" cy="590" r="230" fill="#b9e9df" opacity=".72"/><path d="M0 420C160 330 260 510 410 400s245-25 390-125v365H0z" fill="#c4a8df" opacity=".72"/><text x="48" y="110" fill="#28252a" font-family="Georgia,serif" font-size="42" font-weight="700">${title}</text><text x="48" y="168" fill="#ff6b6b" font-family="monospace" font-size="18" letter-spacing="3">PROMPT GALLERY</text></svg>`)}`;
 
 const categories = [
@@ -76,9 +79,17 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<(typeof categoryCards)[number] | null>(null);
   const [categoryCopied, setCategoryCopied] = useState(false);
   const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
+  const [fileContents, setFileContents] = useState<Record<string, string>>({});
   const [fileCopied, setFileCopied] = useState(false);
   const [saved, toggleSaved] = useLocalList("prompt-gallery-saved");
   const [comment, setComment] = useState("");
+  useEffect(() => {
+    if (!selectedFileId || fileContents[selectedFileId] || !promptFilePaths[selectedFileId]) return;
+    fetch(promptFilePaths[selectedFileId])
+      .then((response) => response.ok ? response.text() : Promise.reject(new Error("Source file unavailable")))
+      .then((content) => setFileContents((current) => ({ ...current, [selectedFileId]: content })))
+      .catch(() => toast.error("Source file unavailable", { description: "Please try opening the file again." }));
+  }, [selectedFileId, fileContents]);
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -110,7 +121,7 @@ export default function Home() {
     }
   };
   const selectedFile = selectedFileId ? promptFiles.find((file) => file.id === selectedFileId) : null;
-  const copyFullFile = async () => { if (!selectedFileId) return; try { if (!navigator.clipboard) throw new Error("Clipboard API unavailable"); await navigator.clipboard.writeText(fullPromptFiles[selectedFileId]); setFileCopied(true); toast.success("Complete file copied", { description: "Every word from the source file is now on your clipboard." }); window.setTimeout(() => setFileCopied(false), 1800); } catch { toast.error("Copy unavailable", { description: "Select the source text and copy it manually." }); } };
+  const copyFullFile = async () => { if (!selectedFileId || !fileContents[selectedFileId]) return; try { if (!navigator.clipboard) throw new Error("Clipboard API unavailable"); await navigator.clipboard.writeText(fileContents[selectedFileId]); setFileCopied(true); toast.success("Complete file copied", { description: "Every word from the source file is now on your clipboard." }); window.setTimeout(() => setFileCopied(false), 1800); } catch { toast.error("Copy unavailable", { description: "Select the source text and copy it manually." }); } };
   const copyCategoryPrompt = async () => { if (!selectedCategory) return; try { if (!navigator.clipboard) throw new Error("Clipboard API unavailable"); await navigator.clipboard.writeText(selectedCategory.prompt); setCategoryCopied(true); toast.success("Category prompt copied", { description: `${selectedCategory.title} is ready to use.` }); window.setTimeout(() => setCategoryCopied(false), 1800); } catch { toast.error("Copy unavailable", { description: "Select the prompt text and copy it manually." }); } };
   const addComment = () => { if (!selected || !comment.trim()) return; const next = { ...comments, [selected.id]: [...(comments[selected.id] || []), comment.trim()] }; setComments(next); try { window.localStorage.setItem("prompt-gallery-comments", JSON.stringify(next)); } catch { /* Keep comments available for this session if storage is restricted. */ } setComment(""); toast.success("Comment saved on this device"); };
 
@@ -167,7 +178,7 @@ export default function Home() {
 
     {selectedCategory && <div className="fixed inset-0 z-[70] overflow-y-auto bg-[#28252a]/45 p-4 backdrop-blur-sm sm:p-8" onMouseDown={(e) => { if (e.target === e.currentTarget) setSelectedCategory(null); }}><div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-[#fbf7ef] shadow-2xl"><div className="grid lg:grid-cols-[.78fr_1.22fr]"><div className="relative min-h-[280px] lg:min-h-full"><img src={selectedCategory.image} alt={`${selectedCategory.title} generated artwork`} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackImage(selectedCategory.title); }} className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#28252a]/70 to-transparent" /><span className="absolute bottom-5 left-5 rounded-full bg-white/90 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider">{String(selectedCategory.id).padStart(3, "0")} · {selectedCategory.kind}</span></div><div className="p-6 sm:p-9"><div className="flex items-start justify-between gap-4"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#ff6b6b]">Category prompt · {selectedCategory.duration}</p><h2 className="mt-2 font-display text-4xl font-bold leading-none tracking-[-0.05em]">{selectedCategory.title}</h2><p className="mt-4 text-sm leading-relaxed text-[#746c73]">{selectedCategory.description}</p></div><button onClick={() => setSelectedCategory(null)} className="rounded-full bg-white p-2 text-[#746c73] hover:text-[#28252a]" aria-label="Close"><X size={18} /></button></div><div className="mt-6 rounded-2xl border border-[#2d2932]/10 bg-white p-4"><div className="mb-3 flex items-center justify-between"><span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#ff6b6b]">Full ready-made prompt</span><button onClick={copyCategoryPrompt} className="inline-flex items-center gap-1.5 rounded-full bg-[#ff6b6b] px-3 py-2 text-xs font-bold text-white">{categoryCopied ? <Check size={13} /> : <Copy size={13} />} {categoryCopied ? "Copied" : "Copy prompt"}</button></div><p className="max-h-[52vh] overflow-y-auto whitespace-pre-wrap text-sm leading-relaxed text-[#4d474e]">{selectedCategory.prompt}</p></div><div className="mt-5 rounded-xl bg-[#f4e9e5] px-4 py-3 text-xs leading-relaxed text-[#746c73]">Use the image above as the visual direction for this category. The prompt is designed for connected 10-second scenes and includes character, environment, camera, audio, and continuity controls.</div></div></div></div></div>}
 
-    {selectedFile && selectedFileId && <div role="dialog" aria-modal="true" aria-label="Complete prompt source file" className="fixed inset-0 z-[60] overflow-y-auto bg-[#28252a]/45 p-4 backdrop-blur-sm sm:p-8" onMouseDown={(e) => { if (e.target === e.currentTarget) setSelectedFileId(null); }}><div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-[#fbf7ef] shadow-2xl"><div className="flex flex-col gap-5 border-b border-[#2d2932]/10 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#ff6b6b]">Exact source file · {selectedFile.eyebrow}</p><h2 className="mt-2 font-display text-4xl font-bold tracking-[-0.05em]">{selectedFile.title}</h2><p className="mt-2 text-sm text-[#746c73]">{selectedFile.description}</p></div><div className="flex shrink-0 items-center gap-2"><button onClick={copyFullFile} className="inline-flex items-center gap-2 rounded-full bg-[#ff6b6b] px-4 py-2.5 text-xs font-bold text-white shadow-[3px_3px_0_#28252a]">{fileCopied ? <Check size={14} /> : <Copy size={14} />} {fileCopied ? "Copied" : "Copy full file"}</button><a href={`data:text/markdown;charset=utf-8,${encodeURIComponent(fullPromptFiles[selectedFileId])}`} download={selectedFile.filename} className="inline-flex items-center gap-2 rounded-full border border-[#2d2932]/15 bg-white px-4 py-2.5 text-xs font-bold"><Download size={14} /> Download</a><button onClick={() => setSelectedFileId(null)} className="rounded-full bg-white p-2 text-[#746c73] hover:text-[#28252a]" aria-label="Close"><X size={18} /></button></div></div><div className="max-h-[68vh] overflow-y-auto bg-white p-6 sm:p-10"><pre className="whitespace-pre-wrap break-words font-mono text-[12px] leading-[1.75] text-[#4d474e]">{fullPromptFiles[selectedFileId]}</pre></div></div></div>}
+    {selectedFile && selectedFileId && <div role="dialog" aria-modal="true" aria-label="Complete prompt source file" className="fixed inset-0 z-[60] overflow-y-auto bg-[#28252a]/45 p-4 backdrop-blur-sm sm:p-8" onMouseDown={(e) => { if (e.target === e.currentTarget) setSelectedFileId(null); }}><div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-[#fbf7ef] shadow-2xl"><div className="flex flex-col gap-5 border-b border-[#2d2932]/10 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"><div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#ff6b6b]">Exact source file · {selectedFile.eyebrow}</p><h2 className="mt-2 font-display text-4xl font-bold tracking-[-0.05em]">{selectedFile.title}</h2><p className="mt-2 text-sm text-[#746c73]">{selectedFile.description}</p></div><div className="flex shrink-0 items-center gap-2"><button onClick={copyFullFile} className="inline-flex items-center gap-2 rounded-full bg-[#ff6b6b] px-4 py-2.5 text-xs font-bold text-white shadow-[3px_3px_0_#28252a]">{fileCopied ? <Check size={14} /> : <Copy size={14} />} {fileCopied ? "Copied" : "Copy full file"}</button><a href={`data:text/markdown;charset=utf-8,${encodeURIComponent(fileContents[selectedFileId] || "")}`} download={selectedFile.filename} className="inline-flex items-center gap-2 rounded-full border border-[#2d2932]/15 bg-white px-4 py-2.5 text-xs font-bold"><Download size={14} /> Download</a><button onClick={() => setSelectedFileId(null)} className="rounded-full bg-white p-2 text-[#746c73] hover:text-[#28252a]" aria-label="Close"><X size={18} /></button></div></div><div className="max-h-[68vh] overflow-y-auto bg-white p-6 sm:p-10"><pre className="whitespace-pre-wrap break-words font-mono text-[12px] leading-[1.75] text-[#4d474e]">{fileContents[selectedFileId] || "Loading the exact source text…"}</pre></div></div></div>}
 
     {selected && <div role="dialog" aria-modal="true" aria-label={selected ? `${selected.title} prompt details` : "Prompt details"} className="fixed inset-0 z-50 overflow-y-auto bg-[#28252a]/45 p-4 backdrop-blur-sm sm:p-8" onMouseDown={(e) => { if (e.target === e.currentTarget) setSelected(null); }}><div className="mx-auto max-w-4xl overflow-hidden rounded-[28px] bg-[#fbf7ef] shadow-2xl"><div className="grid lg:grid-cols-[.8fr_1.2fr]"><div className="relative min-h-[260px] lg:min-h-full"><img src={selected.image} alt={`${selected.title} AI video prompt artwork`} onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = fallbackImage(selected.title); }} className="absolute inset-0 h-full w-full object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[#28252a]/60 to-transparent" /><span className="absolute bottom-5 left-5 rounded-full bg-white/90 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider">{selected.category}</span></div><div className="p-6 sm:p-9"><div className="flex items-start justify-between gap-4"><div><p className="font-mono text-[10px] uppercase tracking-wider text-[#ff6b6b]">{selected.type} · {selected.duration}</p><h2 className="mt-2 font-display text-4xl font-bold leading-none tracking-[-0.05em]">{selected.title}</h2></div><button onClick={() => setSelected(null)} className="rounded-full bg-white p-2 text-[#746c73] hover:text-[#28252a]" aria-label="Close"><X size={18} /></button></div><p className="mt-5 text-sm leading-relaxed text-[#746c73]">{selected.excerpt}</p><div className="mt-6 rounded-2xl border border-[#2d2932]/10 bg-white p-4"><div className="mb-3 flex items-center justify-between"><span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#ff6b6b]">Full production prompt</span><button onClick={() => copy(selected.prompt)} className="inline-flex items-center gap-1.5 rounded-full bg-[#ff6b6b] px-3 py-2 text-xs font-bold text-white"><Copy size={13} /> Copy</button></div><p className="max-h-64 overflow-y-auto whitespace-pre-wrap text-sm leading-relaxed text-[#4d474e]">{selected.prompt}</p></div><div className="mt-6"><div className="mb-3 flex items-center gap-2 font-display text-xl font-bold"><MessageCircle size={18} className="text-[#ff6b6b]" /> Notes from creators</div>{(comments[selected.id] || []).length > 0 ? <div className="mb-3 space-y-2">{comments[selected.id].map((c, i) => <div key={i} className="rounded-xl bg-[#f4e9e5] px-3 py-2 text-sm">{c}</div>)}</div> : <p className="mb-3 text-xs text-[#8a8187]">Add a note about your test, result, or remix. Saved on this device.</p>}<div className="flex gap-2"><input value={comment} onChange={(e) => setComment(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addComment()} placeholder="Leave a creator note..." className="min-w-0 flex-1 rounded-xl border border-[#2d2932]/15 bg-white px-3 py-2.5 text-sm outline-none focus:border-[#ff6b6b]" /><button onClick={addComment} className="rounded-xl bg-[#28252a] px-4 py-2 text-xs font-bold text-white">Post</button></div></div></div></div></div></div>}
   </div>;

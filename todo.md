@@ -1,5 +1,15 @@
 # Exact Prompt Library Implementation Checklist
 
+## Next.js Migration
+
+- [x] Audit the current Vite configuration and identify the Next.js replacement surface.
+- [x] Add Next.js package scripts and configuration while preserving frontend-only hosting.
+- [x] Create the Next.js App Router structure and migrate the existing homepage and 404 page.
+- [x] Migrate prompt content, generated assets, styles, icons, and client-only interactions.
+- [x] Add static category routes, metadata, sitemap, robots, and accessible navigation.
+- [x] Run Next.js typecheck, production build, route checks, and responsive screenshots.
+- [ ] Save a new Next.js checkpoint after regression validation.
+
 ## Fresh QA Pass
 
 - [x] Audit project structure, routes, content, images, metadata, and runtime logs.
