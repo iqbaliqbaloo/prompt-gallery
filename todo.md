@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fix Blank Card Images
+
+- [x] Trace the actual rendered card image paths and onError behavior.
+- [x] Replace broken bindings with verified generated asset URLs.
+- [x] Ensure image containers have visible dimensions and no overlay hides artwork.
+- [x] Verify main and subcategory cards display images and remain clickable.
+- [x] Run build checks and capture screenshots; checkpoint remains next.
+
 ## Generated Prompt-Specific Artwork
 
 - [x] Define the generated visual system and map every category to its own artwork prompt.
