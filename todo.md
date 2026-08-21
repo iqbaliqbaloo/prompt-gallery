@@ -1,5 +1,45 @@
 # Exact Prompt Library Implementation Checklist
 
+## Preview Loading Recovery
+
+- [ ] Inspect the failing route, server status, and browser/runtime errors.
+- [ ] Fix the blocking runtime or build issue without reverting approved preview changes.
+- [ ] Rebuild, restart, and verify the homepage and affected category route.
+- [ ] Keep the recovery unpushed until user approval.
+
+## Exact Viral Baby Attachment Replacement
+
+- [x] Replace the Viral Baby Videos card with the complete latest attachment.
+- [ ] Compare the embedded card prompt against the attachment and run the preview build.
+- [x] Keep the update unpushed until user approval; approval received for GitHub synchronization.
+
+## Full Category Prompt Audit
+
+- [x] Audit all 162 category prompts for production-ready requirements and category-specific coverage.
+- [x] Identify missing consistency, scene, camera, sound, output, negative-prompt, and quality-control instructions.
+- [x] Upgrade the shared category prompt architecture without changing category intent or exact master prompt content.
+- [x] Validate all card prompts, counts, routes, assets, and production build in preview only.
+
+## Master Prompt Audit and Missing Cards
+
+- [x] Audit Viral Baby Videos and Ulti Dunya against their own stated requirements without unnecessary rewriting.
+- [x] Record verified gaps and strengthen only those sections.
+- [x] Identify requested image/design prompt types missing from the current cards.
+- [x] Add missing prompt cards with production-ready modular instructions and unique artwork for preview.
+- [x] Validate exact-preservation requirements, routes, counts, and production build without pushing.
+
+## Exact Viral Baby Videos Prompt
+
+- [ ] Replace the Viral Baby Videos card text with the complete latest attachment.
+- [x] Compare the card prompt against the attachment and validate the preview build.
+- [x] Keep the correction unpushed until user approval.
+
+## Exact Reverse Animal World Prompt
+
+- [x] Replace the Reverse Animal World card text with the complete latest attachment.
+- [x] Compare the card prompt against the attachment and validate the preview build.
+- [x] Keep the correction unpushed until user approval.
+
 ## Preview Card Ordering
 
 - [ ] Move Viral Baby Videos and Ulti Dunya cards to the top of the category atlas.
@@ -19,7 +59,7 @@
 - [x] Scan source, prompts, documentation, metadata, and configuration for Manus references.
 - [x] Remove or replace every removable Manus word while preserving required asset paths and hosting configuration.
 - [x] Validate that no removable Manus text remains and run typecheck/build checks.
-- [ ] Push the cleaned project to GitHub.
+- [x] Push the cleaned project to GitHub.
 
 ## Domain SEO Completion Pass
 
