@@ -1,49 +1,38 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
+/* Candy Editorial Studio: keep error states warm, editorial, and useful instead of generic template chrome. */
+import { ArrowLeft, Compass, Home } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function NotFound() {
   const [, setLocation] = useLocation();
 
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
+    <main className="min-h-screen bg-[#fbf7ef] px-5 py-10 text-[#28252a] sm:px-8 lg:px-10">
+      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1180px] flex-col justify-between">
+        <header className="flex items-center justify-between border-b border-[#2d2932]/10 pb-5">
+          <button onClick={() => setLocation("/")} className="flex items-center gap-3 text-left" aria-label="Return to Prompt Gallery home">
+            <span className="grid h-10 w-10 place-items-center rounded-[14px] bg-[#ff6b6b] text-white shadow-[4px_4px_0_#28252a]"><Compass size={20} /></span>
+            <span><span className="block font-display text-xl font-bold leading-none">Prompt Gallery</span><span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.2em] text-[#746c73]">Creative video library</span></span>
+          </button>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff6b6b]">Frame not found</span>
+        </header>
+
+        <section className="grid items-center gap-10 py-16 lg:grid-cols-[.8fr_1.2fr] lg:py-24">
+          <div>
+            <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#ff6b6b]">404 / Wrong take</p>
+            <h1 className="font-display text-[clamp(5rem,13vw,11rem)] font-black leading-[0.78] tracking-[-0.08em]">Not<br /><em className="text-[#ff6b6b]">here.</em></h1>
+          </div>
+          <div className="max-w-xl">
+            <h2 className="font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl">This scene didn’t make the final cut.</h2>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-[#746c73]">The page may have moved, or the URL may be from a prompt that has not been added to the shelf yet.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <button onClick={() => setLocation("/")} className="inline-flex items-center gap-2 rounded-full bg-[#ff6b6b] px-5 py-3.5 text-sm font-bold text-white shadow-[5px_5px_0_#28252a] transition hover:-translate-y-1"><Home size={16} /> Return home</button>
+              <button onClick={() => window.history.back()} className="inline-flex items-center gap-2 rounded-full border border-[#2d2932]/15 bg-white px-5 py-3.5 text-sm font-bold transition hover:-translate-y-1 hover:border-[#ff6b6b]"><ArrowLeft size={16} /> Go back</button>
             </div>
           </div>
+        </section>
 
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+        <footer className="flex flex-col justify-between gap-3 border-t border-[#2d2932]/10 pt-5 text-sm text-[#746c73] sm:flex-row"><span>Make the next frame feel inevitable.</span><span className="font-mono text-[10px] uppercase tracking-[0.18em]">Prompt Gallery · 2026</span></footer>
+      </div>
+    </main>
   );
 }

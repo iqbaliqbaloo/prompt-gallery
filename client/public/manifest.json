@@ -6,5 +6,12 @@
   "display": "standalone",
   "background_color": "#fbf7ef",
   "theme_color": "#ff6b6b",
-  "icons": []
+  "icons": [
+    {
+      "src": "/manus-storage/ai-animation-product-card_022f5f6a.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
 }

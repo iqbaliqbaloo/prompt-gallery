@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fresh QA Pass
+
+- [x] Audit project structure, routes, content, images, metadata, and runtime logs.
+- [x] Test search, filters, card clicks, prompt modals, copy, favorites, comments, and navigation.
+- [x] Test desktop, tablet, mobile, keyboard focus, empty states, image failures, and overflow.
+- [x] Fix discovered bugs, accessibility gaps, broken assets, content deficiencies, and UX issues.
+- [x] Run TypeScript, production build, and regression checks.
+- [x] Capture final screenshots; checkpoint remains next.
+
 ## SEO Optimization Pass
 
 - [x] Audit current titles, descriptions, headings, routes, images, and indexability.
