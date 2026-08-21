@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://promptgalaxy-44vopfaq.manus.space";
+export const dynamic = "force-static";
+
+const siteUrl = "https://promptgallery.sbs";
 
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "../client/src/index.css";
 
-const siteUrl = "https://promptgalaxy-44vopfaq.manus.space";
+const siteUrl = "https://promptgallery.sbs";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -17,6 +17,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Prompt Gallery",
+          url: siteUrl,
+          description: "A visual library of ready-to-use AI video prompts for stories, lessons, ads, vlogs, documentaries, and animation.",
+          potentialAction: { "@type": "SearchAction", target: `${siteUrl}/?q={search_term_string}`, "query-input": "required name=search_term_string" },
+        }) }} />
         {children}
         {analyticsEndpoint && analyticsWebsiteId ? <script defer src={`${analyticsEndpoint}/umami`} data-website-id={analyticsWebsiteId} /> : null}
       </body>

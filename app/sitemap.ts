@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { categoryCards } from "../client/src/content/categoryCards";
 
-const siteUrl = "https://promptgalaxy-44vopfaq.manus.space";
+export const dynamic = "force-static";
+
+const siteUrl = "https://promptgallery.sbs";
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {

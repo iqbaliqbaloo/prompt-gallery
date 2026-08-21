@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Domain SEO Completion Pass
+
+- [x] Audit https://promptgallery.sbs availability, redirects, HTTPS, canonical domain, robots, and sitemap.
+- [x] Align all Next.js metadata, canonical URLs, Open Graph URLs, sitemap, robots, and structured data to promptgallery.sbs.
+- [x] Add or improve indexable source-file routes and internal links where useful.
+- [x] Validate 150 category routes, metadata, structured data, crawl files, and production build.
+- [ ] Save and publish the SEO completion checkpoint.
+
 ## Next.js Migration
 
 - [x] Audit the current Vite configuration and identify the Next.js replacement surface.

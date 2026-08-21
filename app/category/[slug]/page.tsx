@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { categoryCards } from "../../../client/src/content/categoryCards";
 
-const siteUrl = "https://promptgalaxy-44vopfaq.manus.space";
+const siteUrl = "https://promptgallery.sbs";
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export function generateStaticParams() {
@@ -36,8 +36,19 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const category = getCategory(slug);
   if (!category) notFound();
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${category.title} AI Video Prompt`,
+    description: category.description,
+    url: `${siteUrl}/category/${slug}`,
+    image: category.image,
+    publisher: { "@type": "Organization", name: "Prompt Gallery", url: siteUrl },
+  };
   return (
+
     <main className="min-h-screen bg-[#fbf7ef] px-5 py-8 text-[#28252a] sm:px-8 lg:px-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="mx-auto max-w-[1100px]">
         <Link href="/" className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#ff6b6b]">← Prompt Gallery</Link>
         <article className="mt-8 overflow-hidden rounded-[30px] border border-[#2d2932]/10 bg-white shadow-[8px_8px_0_#28252a]">
