@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Restore Visible Real Card Images
+
+- [x] Audit the uploaded image paths and identify why card images are blank.
+- [x] Prepare reliable real prompt-matched image assets for main and subcategory cards.
+- [x] Wire visible images into both card layers and preserve click actions.
+- [x] Verify card image rendering and click behavior at desktop and mobile sizes.
+- [x] Run build checks; checkpoint remains next.
+
 ## Visible Unique Category Imagery
 
 - [x] Audit visible duplicates caused by the remote image endpoint.
