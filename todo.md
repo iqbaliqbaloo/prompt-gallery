@@ -1,5 +1,84 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fresh QA Audit — Today’s Features
+
+- [ ] Audit changed source files, routes, runtime logs, and storage safety.
+- [ ] Test Viral Baby workflow, note add/update/delete, notification count, and read clearing.
+- [ ] Fix confirmed bugs, inconsistencies, and UX deficiencies without changing exact prompts.
+- [ ] Run typecheck, production build, responsive screenshots, and final route checks.
+- [ ] Keep QA fixes preview-only and do not push to GitHub.
+
+## English-Only Note Interface
+
+- [x] Replace all Urdu note labels, helper text, and placeholders with English.
+- [x] Scan user-facing note UI for remaining Urdu text and validate the production build.
+
+## Per-Card Notes and Notification Center
+
+- [x] Audit existing card notes, LocalStorage, and header controls.
+- [x] Support multiple notes per card with add, update, delete, and persistence.
+- [x] Show the total unread note count on the notification icon, including counts above 99.
+- [x] Add a notification panel to view notes and clear the unread badge when viewed.
+- [x] Validate the frontend-only flow and production build without pushing to GitHub.
+
+## Per-Card Feedback and Prompt Review
+
+- [ ] Audit the existing per-card Notes from creators state and LocalStorage behavior.
+- [ ] Add per-card fault question, saved feedback notes, edit, delete, and review/improve actions.
+- [ ] Validate persistence, responsive modal behavior, and production build without pushing to GitHub.
+
+## Viral Baby Story Conversion Flow Fix
+
+- [x] Replace the fixed 10-second one-scene conversion with user-selected total duration and scene count.
+- [x] Require a complete character, prop, environment, image-generation, and continuity output before scene prompts.
+- [x] Generate connected scene-by-scene video prompts with exact original dialogue and scene handoffs.
+- [x] Validate the revised workflow and production build without pushing to GitHub.
+
+- [x] Inspect how the Viral Baby master prompt is presented and how story context is preserved.
+- [x] Add a separate improved exact-story handoff so Story 1–15 can be converted without invented dialogue.
+- [x] Validate the corrected flow, routes, and production build without pushing to GitHub.
+- [x] Add an automatic Prompt 1 generation fallback when Stories 1–15 are absent before asking for a story number.
+- [x] Validate the repeated-error correction and production build without pushing to GitHub.
+
+## Exact Watermelon Sculpture Video Prompt Card
+
+- [x] Add the provided Watermelon Sculpture Video Prompt as a separate exact-copy card.
+- [x] Add unique artwork, detail route, search entry, and updated category count.
+- [x] Verify exact text fidelity and preview build while preserving all existing cards.
+- [x] Keep the new card unpushed until user approval.
+
+## Exact Cute Baby Talking Videos Card
+
+- [x] Add the attached Cute Baby Talking Videos Master Prompt as a separate card without changing its wording.
+- [x] Add unique artwork, detail route, search entry, and updated category count.
+- [x] Verify byte-for-byte fidelity and preview build while preserving all existing cards.
+- [x] Keep the new card unpushed until user approval.
+
+## Separate Adaptive Master Prompt Card
+
+- [x] Add the adaptive duration-and-scene-count Master Prompt as a new separate card.
+- [x] Add unique artwork, detail route, search entry, and updated category count.
+- [x] Verify Viral Baby and Ulti Dunya prompts remain unchanged and validate the preview build.
+- [x] Keep the new card unpushed until user approval.
+
+## Adaptive Duration and Scene Count Master Prompt
+
+- [ ] Replace fixed 10-second assumptions with user-selected duration and scene count.
+- [ ] Define dynamic scene timing, scene handoffs, and continuity rules for short and long videos.
+- [ ] Present the corrected adaptive Master Prompt in chat only without changing the project.
+
+## Standalone Human Museum Video Prompt
+
+- [ ] Remove image-upload/reference wording from the prompt.
+- [ ] Define all characters, environment, continuity, camera, timing, dialogue, audio, and negative rules for video generation.
+- [ ] Present the corrected one-scene video prompt in chat only without changing the project or GitHub.
+
+## Ultra Human Museum Prompt Draft
+
+- [ ] Resolve contradictions in the source prompt while preserving the story intent.
+- [ ] Write the complete production-ready master prompt to a separate Markdown draft.
+- [ ] Deliver the draft for review without adding a card or pushing to GitHub.
+
 ## Preview Loading Recovery
 
 - [ ] Inspect the failing route, server status, and browser/runtime errors.
