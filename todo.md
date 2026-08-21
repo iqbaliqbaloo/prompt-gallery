@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fully Populated Category Cards
+
+- [x] Audit all 150 category titles against the source category library.
+- [x] Generate one distinct full prompt record for every category.
+- [x] Assign one distinct category-matched image URL to every category.
+- [x] Add prompt text, copy action, metadata, and comments to every category detail flow.
+- [x] Verify exactly 150 cards, prompts, and image assignments with no empty fields.
+- [x] Run build checks and capture screenshots; checkpoint remains next.
+
 ## 150-Category Visual Gallery
 
 - [x] Define 150 category records with titles, descriptions, metadata, colors, and image treatments.
