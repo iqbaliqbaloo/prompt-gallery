@@ -1,5 +1,11 @@
 # Exact Prompt Library Implementation Checklist
 
+## Preview Card Ordering
+
+- [ ] Move Viral Baby Videos and Ulti Dunya cards to the top of the category atlas.
+- [ ] Preserve card content, artwork, routes, and existing category behavior.
+- [ ] Validate preview ordering and production build without pushing to GitHub.
+
 ## Focused SEO Topic Expansion
 
 - [x] Audit current homepage metadata and identify focused topic landing pages.
