@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Generated AI-Animation Card Artwork
+
+- [x] Define the colorful AI-animation visual direction from the reference image.
+- [x] Generate representative prompt-matched animation artwork.
+- [x] Replace plain or unrelated card visuals with animation artwork.
+- [x] Preserve unique images, card clickability, and prompt-detail matching.
+- [x] Verify the main shelf and category atlas visually on desktop and mobile.
+- [x] Run build checks; checkpoint remains next.
+
 ## Fresh End-to-End Audit and Refresh
 
 - [x] Audit routes, content wiring, image assets, runtime console, and network behavior.

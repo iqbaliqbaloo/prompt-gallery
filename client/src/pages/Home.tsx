@@ -15,15 +15,15 @@ import file07 from "@/content/prompts/07-corrected-generator.md?raw";
 
 const images = {
   hero: "/manus-storage/prompt-gallery-hero_67f22a53.jpg",
-  cartoon: "/manus-storage/generated-story-card_91a2c85a.jpg",
-  cinematic: "/manus-storage/generated-documentary-card_61642752.jpg",
-  learning: "/manus-storage/generated-learning-card_19f0726d.jpg",
-  mark: "/manus-storage/prompt-gallery-mark_717e3101.jpg",
-  city: "/manus-storage/generated-vlog-card_a5568260.jpg",
-  travel: "/manus-storage/prompt-gallery-hero_67f22a53.jpg",
-  food: "/manus-storage/generated-product-card_dbb86e06.jpg",
-  fashion: "/manus-storage/prompt-gallery-mark_717e3101.jpg",
-  nature: "/manus-storage/generated-documentary-card_61642752.jpg",
+  cartoon: "/manus-storage/ai-animation-story-card_e443afd0.jpg",
+  cinematic: "/manus-storage/ai-animation-documentary-card_3ab62b13.jpg",
+  learning: "/manus-storage/ai-animation-learning-card_d306944a.jpg",
+  mark: "/manus-storage/ai-animation-product-card_022f5f6a.jpg",
+  city: "/manus-storage/ai-animation-vlog-card_fe2d64c3.jpg",
+  travel: categoryAssetUrls[0],
+  food: categoryAssetUrls[1],
+  fashion: categoryAssetUrls[2],
+  nature: categoryAssetUrls[3],
 };
 
 const fullPromptFiles: Record<string, string> = { "01": file01, "02": file02, "03": file03, "04": file04, "05": file05, "06": file06, "07": file07 };
