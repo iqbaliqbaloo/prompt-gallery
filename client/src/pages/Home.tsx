@@ -15,15 +15,15 @@ import file07 from "@/content/prompts/07-corrected-generator.md?raw";
 
 const images = {
   hero: "/manus-storage/prompt-gallery-hero_67f22a53.jpg",
-  cartoon: "/manus-storage/prompt-gallery-cartoon_71464d4f.jpg",
-  cinematic: "/manus-storage/prompt-gallery-cinematic_06003dca.jpg",
-  learning: "/manus-storage/prompt-gallery-learning_14b66aa7.jpg",
+  cartoon: "/manus-storage/generated-story-card_91a2c85a.jpg",
+  cinematic: "/manus-storage/generated-documentary-card_61642752.jpg",
+  learning: "/manus-storage/generated-learning-card_19f0726d.jpg",
   mark: "/manus-storage/prompt-gallery-mark_717e3101.jpg",
-  city: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85",
-  travel: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85",
-  food: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85",
-  fashion: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85",
-  nature: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+  city: "/manus-storage/generated-vlog-card_a5568260.jpg",
+  travel: "/manus-storage/prompt-gallery-hero_67f22a53.jpg",
+  food: "/manus-storage/generated-product-card_dbb86e06.jpg",
+  fashion: "/manus-storage/prompt-gallery-mark_717e3101.jpg",
+  nature: "/manus-storage/generated-documentary-card_61642752.jpg",
 };
 
 const fullPromptFiles: Record<string, string> = { "01": file01, "02": file02, "03": file03, "04": file04, "05": file05, "06": file06, "07": file07 };

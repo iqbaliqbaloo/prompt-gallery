@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Generated Prompt-Specific Artwork
+
+- [x] Define the generated visual system and map every category to its own artwork prompt.
+- [x] Generate category-specific artwork without fetching external images.
+- [x] Save generated assets through the project web-asset workflow.
+- [x] Wire generated artwork into main and all 150 subcategory cards.
+- [x] Verify coverage, uniqueness, rendering, and clickability.
+- [x] Run build checks and capture screenshots; checkpoint remains next.
+
 ## Title-Matched Visual Assets
 
 - [x] Audit title-to-image mismatches in the current card gallery.
