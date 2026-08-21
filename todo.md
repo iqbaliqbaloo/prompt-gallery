@@ -1,5 +1,13 @@
 # Exact Prompt Library Implementation Checklist
 
+## Title-Matched Visual Assets
+
+- [x] Audit title-to-image mismatches in the current card gallery.
+- [x] Define a deterministic visual subject for every category title.
+- [x] Create or assign clearly title-matched images for all main and subcategory cards.
+- [x] Wire matched assets into card and modal views without breaking click behavior.
+- [x] Verify title-image alignment and run final build checks.
+
 ## Restore Visible Real Card Images
 
 - [x] Audit the uploaded image paths and identify why card images are blank.
