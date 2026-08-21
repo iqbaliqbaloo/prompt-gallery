@@ -1,5 +1,33 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fresh AI Artwork for Every Card
+
+- [ ] Freeze a 165-title image-to-asset map with unique filenames.
+- [ ] Generate one fresh AI image per card title in controlled batches.
+- [ ] Upload every generated image and create a persistent asset manifest.
+- [ ] Replace card mappings with the fresh uploaded assets only after the batch is complete.
+- [ ] Validate all 165 assets, routes, preview rendering, and production build without pushing.
+
+## Complete Title-Matched Artwork Coverage
+
+- [x] Audit all 165 cards for image assignment, uniqueness, and HTTP resolution.
+- [x] Create title-specific artwork only for cards that lack valid matching visuals.
+- [x] Wire and validate complete card artwork coverage without replacing valid images.
+- [x] Run the final build and preview checks without pushing to GitHub.
+
+## Title-Matched AI Artwork for Missing Cards
+
+- [x] Audit every card for missing or unresolved image assets.
+- [x] Generate unique AI artwork only for cards that need it.
+- [x] Wire the new assets without replacing valid existing artwork.
+- [x] Validate image URLs, routes, preview rendering, and production build without pushing.
+
+## Client-Side Exception Recovery
+
+- [x] Inspect browser console, runtime logs, and the latest pushed changes.
+- [x] Trace and fix the client-side exception without changing exact prompt content.
+- [x] Rebuild, restart, verify homepage and key category routes, then save the repair.
+
 ## Fresh QA Audit — Today’s Features
 
 - [ ] Audit changed source files, routes, runtime logs, and storage safety.
