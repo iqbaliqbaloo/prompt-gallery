@@ -1,5 +1,14 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fresh End-to-End Audit and Refresh
+
+- [x] Audit routes, content wiring, image assets, runtime console, and network behavior.
+- [x] Test search, filters, copy, favorites, comments, modals, navigation, and mobile layout.
+- [x] Document bugs, missing features, content gaps, accessibility issues, and performance risks.
+- [x] Refresh the frontend architecture and visual presentation in one coherent pass.
+- [x] Re-test key flows, responsive behavior, accessibility, and production build.
+- [x] Capture final screenshots; checkpoint remains next.
+
 ## Fix Blank Card Images
 
 - [x] Trace the actual rendered card image paths and onError behavior.
