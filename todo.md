@@ -1,5 +1,19 @@
 # Exact Prompt Library Implementation Checklist
 
+## Fresh AI Artwork Assets
+
+- [ ] Audit current artwork and confirm which cards need fresh AI images.
+- [ ] Generate title-matched AI artwork within the available quota.
+- [ ] Save and upload generated assets, then map them to matching cards.
+- [ ] Validate asset URLs, card rendering, routes, and production build without pushing.
+
+## Parent Category Organization
+
+- [x] Define parent categories and audit all existing card labels.
+- [x] Map every card to its relevant parent category without deleting prompts.
+- [x] Add parent-category navigation and relevant-only filtered sections.
+- [x] Validate category counts, search, routes, and production build without pushing.
+
 ## Search and Categories Navigation Fix
 
 - [x] Audit search input filtering, category button handlers, anchors, and route links.
