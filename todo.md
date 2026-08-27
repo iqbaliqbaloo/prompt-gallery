@@ -341,3 +341,33 @@
 - [x] Verify copied files against source files using checksums and byte comparison.
 - [x] Run TypeScript and production build checks.
 - [x] Capture a final responsive screenshot; checkpoint update remains next.
+
+## Expert-Level Full SEO Audit
+
+- [x] Audit crawlability, indexing, metadata, canonicals, sitemap, robots, and structured data.
+- [x] Review all page templates, category routes, topic pages, internal links, and query alignment.
+- [x] Check image SEO, mobile/performance signals, duplicate/thin content, and social metadata.
+- [x] Apply confirmed SEO-only fixes without changing prompt content or app behavior.
+- [x] Validate the complete site and record remaining off-site SEO actions.
+
+
+## PNG Favicon and Search Logo
+
+- [ ] Generate a square high-contrast Prompt Gallery PNG logo.
+- [ ] Add the PNG to the Next.js app and update metadata and manifest references.
+- [ ] Validate the public icon URL, build, preview, and keep the change unpushed.
+
+
+## Sitemap Troubleshooting (promptgallery.sbs)
+
+- [ ] Verify live sitemap URL, content, robots file, and canonical domain.
+- [ ] Identify the exact Search Console status (e.g., "Couldn't fetch", "Discovered - currently not indexed").
+- [ ] Provide step-by-step resubmission and Search Console validation instructions.
+
+
+## Profile Icon and Search Logo
+
+- [x] Verify the current PNG brand logo asset availability.
+- [x] Wire the profile icon as the primary favicon, apple-touch-icon, and manifest logo.
+- [x] Validate the icon delivery, build, preview, and keep the change unpushed.
+

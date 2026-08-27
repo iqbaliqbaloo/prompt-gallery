@@ -9,13 +9,14 @@ const siteUrl = "https://promptgallery.sbs";
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const homepage = { url: siteUrl, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1 };
+  const contentUpdated = new Date("2026-08-24T00:00:00.000Z");
+  const homepage = { url: `${siteUrl}/`, lastModified: contentUpdated, changeFrequency: "weekly" as const, priority: 1 };
   const categories = categoryCards.map((category) => ({
-    url: `${siteUrl}/category/${slugify(category.title)}`,
-    lastModified: new Date(),
+    url: `${siteUrl}/category/${slugify(category.title)}/`,
+    lastModified: contentUpdated,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
-  const topics = topicSlugs.map((slug) => ({ url: `${siteUrl}/topics/${slug}`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 }));
+  const topics = topicSlugs.map((slug) => ({ url: `${siteUrl}/topics/${slug}/`, lastModified: contentUpdated, changeFrequency: "monthly" as const, priority: 0.8 }));
   return [homepage, ...topics, ...categories];
 }

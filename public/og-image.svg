@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt Gallery AI Video Prompt Library</title>
+  <desc id="desc">165 ready-made AI video prompts for stories, cinematic scenes, animation, YouTube, ads, education, vlogs, and documentaries.</desc>
+  <rect width="1200" height="630" fill="#fbf7ef"/>
+  <circle cx="1010" cy="108" r="82" fill="#f2d95c"/>
+  <circle cx="1100" cy="535" r="140" fill="#bde9e1"/>
+  <rect x="70" y="72" width="1060" height="486" rx="38" fill="#ffffff" stroke="#28252a" stroke-opacity=".12" stroke-width="3"/>
+  <path d="M80 475C225 412 326 505 467 443S726 364 856 439s198 14 274-30v149H80Z" fill="#ff6b6b" opacity=".18"/>
+  <rect x="105" y="112" width="18" height="18" rx="9" fill="#ff6b6b"/>
+  <text x="145" y="129" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="5" fill="#ff6b6b">THE PROMPT SHELF IS OPEN</text>
+  <text x="105" y="250" font-family="Georgia, serif" font-size="78" font-weight="700" fill="#28252a">Prompt</text>
+  <text x="105" y="330" font-family="Georgia, serif" font-size="78" font-weight="700" font-style="italic" fill="#ff6b6b">Gallery</text>
+  <text x="105" y="390" font-family="Arial, sans-serif" font-size="25" fill="#746c73">165 ready-made AI video prompts</text>
+  <text x="105" y="430" font-family="Arial, sans-serif" font-size="25" fill="#746c73">Stories · Cinema · Animation · YouTube · More</text>
+  <g transform="translate(820 175) rotate(7)">
+    <rect width="220" height="250" rx="25" fill="#f4e9e5" stroke="#28252a" stroke-width="6"/>
+    <rect x="22" y="25" width="176" height="150" rx="18" fill="#8ad9d0"/>
+    <circle cx="110" cy="95" r="42" fill="#f47f62"/>
+    <path d="M68 112 91 78l22 25 20-20 39 52H68Z" fill="#f2d95c"/>
+    <rect x="36" y="198" width="148" height="14" rx="7" fill="#28252a" opacity=".18"/>
+  </g>
+</svg>
