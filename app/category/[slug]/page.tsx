@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { categoryCards } from "../../../client/src/content/categoryCards";
+import Image from "next/image";
 
 const siteUrl = "https://promptgallery.sbs";
 const slugify = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export function generateStaticParams() {
-  return categoryCards.map((category) => ({ slug: slugify(category.title) }));
+  return categoryCards.map((category) => ({ slug: category.slug }));
 }
 
 function getCategory(slug: string) {
-  return categoryCards.find((category) => slugify(category.title) === slug);
+  return categoryCards.find((category) => category.slug === slug);
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -34,8 +35,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${pageTitle} | Prompt Gallery`,
       description,
       url: canonicalUrl,
-      images: [{ url: category.image, alt: `${category.title} generated artwork` }],
-    },
+<Image
+  src={category.image}
+  alt={`${category.title} generated artwork`}
+  fill
+  className="object-cover"
+  priority
+  sizes="(max-width: 1024px) 100vw, 40vw"
+/>    },
     twitter: {
       card: "summary_large_image",
       title: `${pageTitle} | Prompt Gallery`,
